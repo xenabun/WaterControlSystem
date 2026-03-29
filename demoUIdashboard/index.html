@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система Химического Контроля</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Мониторинг АТОН-801</h1>
+        <div class="controls">
+            <button class="btn-alert" onclick="toggleEmergency()">Симулировать аварию</button>
+            <button class="btn-reset" onclick="resetSystem()">Сброс</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-grid">
+            <section class="point-card">
+                <div class="card-header">
+                    <h2>ВХОД <span class="subtitle">(из бассейнов)</span></h2>
+                </div>
+                <div class="parameters-grid" id="inlet-params"></div>
+                <div class="chart-container">
+                    <canvas id="chart-inlet"></canvas>
+                </div>
+            </section>
+
+            <section class="point-card">
+                <div class="card-header">
+                    <h2>ВЫХОД <span class="subtitle">(после очистки)</span></h2>
+                </div>
+                <div class="parameters-grid" id="outlet-params"></div>
+                <div class="chart-container">
+                    <canvas id="chart-outlet"></canvas>
+                </div>
+            </section>
+        </div>
+
+        <section class="events-log">
+            <h3>Журнал событий</h3>
+            <div id="log-list" class="log-content"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
